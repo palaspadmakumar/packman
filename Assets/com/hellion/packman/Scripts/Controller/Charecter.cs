@@ -105,7 +105,7 @@ namespace com.hellion.packaman
 
         private void PackmanDead()
         {
-            GameManager.Instance.ResetGame();
+            GameManager.Instance.PlayerDead();
         }
 
         public void ResetCharecter()
@@ -168,8 +168,15 @@ namespace com.hellion.packaman
                 {
                     if (target.GetPelletType() != EPelletType.None)
                     {
+                        if (target.GetPelletType() == EPelletType.Pellet)
+                        {
+                            GameManager.Instance.AddScore(1);
+                        }
+                        else if (target.GetPelletType() == EPelletType.Energizer)
+                        {
+                            GameManager.Instance.SetEnemiesVulnarable();
+                        }
                         target.SetPellet(EPelletType.None);
-                        GameManager.Instance.AddScore(1);
                     }
                 }
             }

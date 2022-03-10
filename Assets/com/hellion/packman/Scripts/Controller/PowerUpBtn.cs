@@ -1,24 +1,58 @@
+using System;
 using com.hellion.tilesystem;
 using com.hellion.tilesystem.utilities;
 using UnityEngine;
+using UnityEngine.UI;
 using static com.hellion.packaman.Charecter;
 
 namespace com.hellion.packaman
 {
     public class PowerUpBtn : MonoBehaviour
     {
-        [SerializeField] private float _blinkSpeed = 1f, _moveSpeed = 1f;
+        [SerializeField] private float _hideDelay = 5, _blinkSpeed = 1f, _moveSpeed = 1f;
+
+        [SerializeField] private Slider _poserupSlider;
         [SerializeField] private GameObject _moveObject;
+        [SerializeField] private Button _button;
         private TileObject _targetTile;
         private Vector3 _moveDir = Vector3.zero;
 
         private ELookDirection _lookDirection = ELookDirection.RIGHT;
+        private float _timer = 0;
+
 
         private void Start()
         {
+            _button.onClick.AddListener(ShootFireBall);
+            GameManager.OnPelletCollected += OnPelletCollected;
             CurrentTile += CurrentTileUpdate;
+            ResetPowerupButton();
+            _moveObject.gameObject.SetActive(false);
         }
 
+        private void OnDestroy()
+        {
+            _button.onClick.RemoveListener(ShootFireBall);
+            GameManager.OnPelletCollected -= OnPelletCollected;
+            CurrentTile -= CurrentTileUpdate;
+        }
+
+        private void OnPelletCollected()
+        {
+            _poserupSlider.value += 0.01f;
+            if (_poserupSlider.value >= 1f)
+            {
+                _timer = 0;
+                _poserupSlider.value = 0f;
+                gameObject.SetActive(true);
+            }
+        }
+
+        private void ResetPowerupButton()
+        {
+            _timer = 0;
+            gameObject.SetActive(false);
+        }
 
         private void CurrentTileUpdate(Charecter charecter, TileObject currentTile)
         {
@@ -39,11 +73,13 @@ namespace com.hellion.packaman
                 return;
             }
 
-            transform.localScale = Vector2.one * Mathf.Clamp(Mathf.PingPong(Time.time * _blinkSpeed, 1f), 0.8f, 1f);
-            if (Input.GetKeyDown(KeyCode.Space))
+            _timer += Time.deltaTime;
+            if (_timer >= _hideDelay)
             {
-                ShootFireBall();
+                ResetPowerupButton();
             }
+
+            transform.localScale = Vector2.one * Mathf.Clamp(Mathf.PingPong(Time.time * _blinkSpeed, 1f), 0.8f, 1f);
 
             if (_targetTile != null)
             {

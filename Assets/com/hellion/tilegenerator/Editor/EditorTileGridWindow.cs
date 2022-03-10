@@ -68,6 +68,10 @@ namespace com.hellion.tilesystem.editor
                     {
                         source = null;
                     }
+                    else
+                    {
+                        EditorUtility.SetDirty(source);
+                    }
                     Heading = "Update Grid Data";
                 }
                 if (GUILayout.Button("Create Grid Data"))
@@ -83,6 +87,7 @@ namespace com.hellion.tilesystem.editor
                         }
                     }
                     AssetDatabase.CreateAsset(source, grid_data_asset);
+                    EditorUtility.SetDirty(source);
                     AssetDatabase.SaveAssets();
                     Heading = "Update Grid Data";
                 }
@@ -100,6 +105,7 @@ namespace com.hellion.tilesystem.editor
                 }
                 if (GUILayout.Button("Save"))
                 {
+                    EditorUtility.SetDirty(source);
                     AssetDatabase.SaveAssets();
                 }
                 if (GUILayout.Button("Debug"))
@@ -120,11 +126,14 @@ namespace com.hellion.tilesystem.editor
                 {
                     if (selectedTiles.Count > 0)
                     {
+
+                        EditorUtility.SetDirty(source);
                         foreach (TileObject item in selectedTiles)
                         {
                             item.UpdateTileObject(selectedTileType, LoadAsset(tileTextures[selectedTileType]));
                             source.tile_data[item.GetIndex().y].data[item.GetIndex().x].SetTileType(selectedTileType, LoadAsset(tileTextures[selectedTileType]));
                         }
+                        AssetDatabase.Refresh();
                     }
                 }
                 GUILayout.EndHorizontal();
@@ -134,11 +143,13 @@ namespace com.hellion.tilesystem.editor
                 {
                     if (selectedTiles.Count > 0)
                     {
+                        EditorUtility.SetDirty(source);
                         foreach (TileObject item in selectedTiles)
                         {
                             item.UpdatePellet(selectedPelletType, GetPelletAsset(selectedPelletType));
                             source.tile_data[item.GetIndex().y].data[item.GetIndex().x].SetPellet(selectedPelletType, GetPelletAsset(selectedPelletType));
                         }
+                        AssetDatabase.Refresh();
                     }
                 }
                 GUILayout.EndHorizontal();

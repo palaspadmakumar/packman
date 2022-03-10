@@ -65,7 +65,10 @@ namespace com.hellion.tilesystem.utilities
             {
                 if (pellet_type == EPelletType.Pellet)
                 {
-                    GameManager.Instance.totalPelletCount += 1;
+                    if (Application.isPlaying)
+                    {
+                        GameManager.Instance.totalPelletCount += 1;
+                    }
                 }
                 SetActivePellet(true);
             }

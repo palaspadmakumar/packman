@@ -12,7 +12,7 @@ namespace com.hellion.tilesystem
         private float tileSize = 0;
         private static TileGenerator tileGenerator;
 
-        private void OnEnable()
+        private void Start()
         {
             tileGenerator = this;
             GenerateGrid();
