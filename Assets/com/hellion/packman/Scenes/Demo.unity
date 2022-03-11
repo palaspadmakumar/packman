@@ -591,7 +591,6 @@ GameObject:
   - component: {fileID: 461523056}
   - component: {fileID: 461523055}
   - component: {fileID: 461523054}
-  - component: {fileID: 461523057}
   m_Layer: 0
   m_Name: PowerButton
   m_TagString: Untagged
@@ -703,24 +702,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461523052}
   m_CullTransparentMesh: 1
---- !u!114 &461523057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461523052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb657f8491b5d74bac7971fe2a46c4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hideDelay: 5
-  _blinkSpeed: 2.5
-  _moveSpeed: 0.5
-  _poserupSlider: {fileID: 1305156560}
-  _moveObject: {fileID: 726501404}
-  _button: {fileID: 461523054}
 --- !u!1 &499904814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,6 +2961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621952339}
   - component: {fileID: 1621952340}
+  - component: {fileID: 1621952341}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -3019,6 +3001,24 @@ MonoBehaviour:
   _restartBtn: {fileID: 1616778880}
   _resumeBtnText: {fileID: 1222408897}
   _titleText: {fileID: 1890485188}
+--- !u!114 &1621952341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621952338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb657f8491b5d74bac7971fe2a46c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideDelay: 5
+  _blinkSpeed: 2.5
+  _moveSpeed: 0.5
+  _poserupSlider: {fileID: 1305156560}
+  _moveObject: {fileID: 726501404}
+  _button: {fileID: 461523054}
 --- !u!1 &1647382001
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ namespace com.hellion.packaman
             Charecter.CurrentTile += CurrentTileUpdate;
             ResetPowerupButton();
             _moveObject.gameObject.SetActive(false);
+            _button.gameObject.SetActive(false);
         }
 
         private void OnDestroy()
@@ -44,14 +45,14 @@ namespace com.hellion.packaman
             {
                 _timer = 0;
                 _poserupSlider.value = 0f;
-                gameObject.SetActive(true);
+                _button.gameObject.SetActive(true);
             }
         }
 
         private void ResetPowerupButton()
         {
             _timer = 0;
-            gameObject.SetActive(false);
+            _button.gameObject.SetActive(false);
         }
 
         private void CurrentTileUpdate(Charecter charecter, TileObject currentTile)
@@ -73,13 +74,16 @@ namespace com.hellion.packaman
                 return;
             }
 
-            _timer += Time.deltaTime;
-            if (_timer >= _hideDelay)
+            if (_button.gameObject.activeInHierarchy)
             {
-                ResetPowerupButton();
-            }
+                _timer += Time.deltaTime;
+                if (_timer >= _hideDelay)
+                {
+                    ResetPowerupButton();
+                }
 
-            transform.localScale = Vector2.one * Mathf.Clamp(Mathf.PingPong(Time.time * _blinkSpeed, 1f), 0.8f, 1f);
+                _button.transform.localScale = Vector2.one * Mathf.Clamp(Mathf.PingPong(Time.time * _blinkSpeed, 1f), 0.8f, 1f);
+            }
 
             if (_targetTile != null)
             {
