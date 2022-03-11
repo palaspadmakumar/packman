@@ -27,7 +27,7 @@ namespace com.hellion.packaman
         private TileObject target = null;
         private Vector3 _moveDir = Vector3.zero;
         public static Action<Charecter, TileObject> CurrentTile;
-        private Animator packamanAnimator;
+        [SerializeField] private Animator packamanAnimator;
         #endregion
 
         #region Enums
@@ -55,6 +55,10 @@ namespace com.hellion.packaman
             DEAD
         }
         #endregion
+        private void Awake()
+        {
+            _color = _charecterbody.color;
+        }
 
         private void Start()
         {
@@ -79,13 +83,8 @@ namespace com.hellion.packaman
 
             stateMachine = new StateMachine<Charecter>(this);
             ResetCharecter();
-            if (_charecterType != ECharecterType.PACMAN)
+            if (_charecterType == ECharecterType.PACMAN)
             {
-                _color = _charecterbody.color;
-            }
-            else
-            {
-                packamanAnimator = transform.GetChild(0).GetComponent<Animator>();
                 TouchInputManagerProxy.InputUpdated += OnInputUpdated;
                 CurrentTile += CurrentTileUpdate;
             }
@@ -148,9 +147,14 @@ namespace com.hellion.packaman
             }
         }
 
+        public Animator GetPackManAnimator()
+        {
+            return packamanAnimator;
+        }
+
         private void PackmanDead()
         {
-            GameManager.Instance.PlayerDead();
+            stateMachine.ChangeState(StatePackManDead.Instance);
         }
 
         public void ResetCharecter()
@@ -158,6 +162,11 @@ namespace com.hellion.packaman
             target = null;
             tileObject = TileGenerator.GetTile(_y, _x);
             transform.position = tileObject.transform.position;
+            if (_charecterType == ECharecterType.PACMAN)
+            {
+                stateMachine.ChangeState(StateCharecterAlive.Instance);
+                packamanAnimator.SetTrigger("Alive");
+            }
         }
 
         private void Update()
@@ -211,7 +220,7 @@ namespace com.hellion.packaman
                 }
                 CheckIsNewTargetContainPellet();
             }
-            else if (target == null)
+            else if (_charecterType != ECharecterType.PACMAN && target == null)
             {
                 target = charecter.GetNextTile(tileObject, this);
                 ReCalculateMoveDirection();
@@ -359,7 +368,6 @@ namespace com.hellion.packaman
             || Math.Abs(tileObject.GetIndex().y - target.GetIndex().y) > 1)
             {
                 tileObject = target;
-                transform.position = target.transform.position;
                 target = null;
             }
         }

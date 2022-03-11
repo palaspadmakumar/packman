@@ -790,6 +790,7 @@ MonoBehaviour:
   _blinkTime: 2
   _blinkFrequece: 0.1
   _vulnColor: {r: 0.21293166, g: 0.41363004, b: 0.8207547, a: 1}
+  packamanAnimator: {fileID: 0}
 --- !u!114 &499904817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,6 +1119,7 @@ MonoBehaviour:
   _blinkTime: 1
   _blinkFrequece: 0.2
   _vulnColor: {r: 1, g: 0, b: 0, a: 1}
+  packamanAnimator: {fileID: 1791654987}
 --- !u!222 &710377324
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1432,6 +1434,7 @@ MonoBehaviour:
   _blinkTime: 2
   _blinkFrequece: 0.1
   _vulnColor: {r: 0.21293166, g: 0.41363004, b: 0.8207547, a: 1}
+  packamanAnimator: {fileID: 0}
 --- !u!114 &1042188209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2552,6 +2555,7 @@ MonoBehaviour:
   _blinkTime: 2
   _blinkFrequece: 0.1
   _vulnColor: {r: 0.21293166, g: 0.41363004, b: 0.8207547, a: 1}
+  packamanAnimator: {fileID: 0}
 --- !u!1 &1530892368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,6 +2703,7 @@ MonoBehaviour:
   _blinkTime: 2
   _blinkFrequece: 0.1
   _vulnColor: {r: 0.21293166, g: 0.41363004, b: 0.8207547, a: 1}
+  packamanAnimator: {fileID: 0}
 --- !u!114 &1573239642
 MonoBehaviour:
   m_ObjectHideFlags: 0

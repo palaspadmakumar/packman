@@ -91,6 +91,7 @@ namespace com.hellion.packaman
             }
             else
             {
+                isGamePaused = false;
                 foreach (Charecter enemy in _enemies)
                 {
                     enemy.ResetCharecter();
