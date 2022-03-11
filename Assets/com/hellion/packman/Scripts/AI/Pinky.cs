@@ -2,7 +2,7 @@ using com.hellion.tilesystem;
 using com.hellion.tilesystem.utilities;
 using UnityEngine;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public class Pinky : ICharecter
     {
@@ -12,19 +12,19 @@ namespace com.hellion.packaman
             TileObject targetTile = null;
 
             Charecter player = GameManager.Instance.GetPlayer();
-            if (player.GetELookDirection() == Charecter.ELookDirection.RIGHT)
+            if (player.GetELookDirection() == ELookDirection.RIGHT)
             {
                 targetTile = TileGenerator.GetRightTile(player.GetCurrentTie());
             }
-            else if (player.GetELookDirection() == Charecter.ELookDirection.LEFT)
+            else if (player.GetELookDirection() == ELookDirection.LEFT)
             {
                 targetTile = TileGenerator.GetLeftTile(player.GetCurrentTie());
             }
-            else if (player.GetELookDirection() == Charecter.ELookDirection.UP)
+            else if (player.GetELookDirection() == ELookDirection.UP)
             {
                 targetTile = TileGenerator.GetUpTile(player.GetCurrentTie());
             }
-            else if (player.GetELookDirection() == Charecter.ELookDirection.DOWN)
+            else if (player.GetELookDirection() == ELookDirection.DOWN)
             {
                 targetTile = TileGenerator.GetDownTile(player.GetCurrentTie());
             }

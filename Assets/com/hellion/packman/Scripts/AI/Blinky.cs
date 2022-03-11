@@ -2,7 +2,7 @@ using com.hellion.tilesystem;
 using com.hellion.tilesystem.utilities;
 using UnityEngine;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public class Blinky : ICharecter
     {

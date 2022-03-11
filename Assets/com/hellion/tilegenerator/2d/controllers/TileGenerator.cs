@@ -1,3 +1,4 @@
+using com.hellion.packman;
 using com.hellion.tilesystem.utilities;
 using UnityEngine;
 
@@ -146,7 +147,7 @@ namespace com.hellion.tilesystem
             {
                 for (int coloumn = 0; coloumn < tileGenerator.source._width; coloumn++)
                 {
-                    if (tileGenerator.source.tile_data[row].data[coloumn]._pellet_type != packaman.EPelletType.None)
+                    if (tileGenerator.source.tile_data[row].data[coloumn]._pellet_type != EPelletType.None)
                     {
                         tileGenerator.grid[row, coloumn].SetPellet(tileGenerator.source.tile_data[row].data[coloumn]._pellet_type);
                     }

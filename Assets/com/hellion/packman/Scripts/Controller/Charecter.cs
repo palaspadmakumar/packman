@@ -5,7 +5,7 @@ using com.hellion.tilesystem.utilities;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public class Charecter : AbstractCharecter
     {
@@ -30,31 +30,6 @@ namespace com.hellion.packaman
         [SerializeField] private Animator packamanAnimator;
         #endregion
 
-        #region Enums
-        public enum ELookDirection
-        {
-            LEFT,
-            RIGHT,
-            UP,
-            DOWN
-        }
-
-        public enum ECharecterType
-        {
-            PACMAN,
-            BLINKY,
-            PINKY,
-            INKY,
-            CLYDE
-        }
-
-        public enum ECharecterState
-        {
-            ALIVE,
-            VULNARABLE,
-            DEAD
-        }
-        #endregion
         private void Awake()
         {
             _color = _charecterbody.color;

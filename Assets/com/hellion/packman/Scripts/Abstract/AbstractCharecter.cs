@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public abstract class AbstractCharecter : MonoBehaviour
     {

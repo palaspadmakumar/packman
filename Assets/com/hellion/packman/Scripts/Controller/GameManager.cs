@@ -1,10 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using com.hellion.tilesystem;
 using UnityEngine;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public class GameManager : MonoBehaviour
     {

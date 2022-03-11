@@ -2,7 +2,7 @@ using System.Collections;
 using com.hellion.statemachine;
 using UnityEngine;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public class StatePackManDead : IState<Charecter>
     {
@@ -17,7 +17,7 @@ namespace com.hellion.packaman
         {
             GameManager.Instance.PauseGame();
             StateObject.GetPackManAnimator().SetTrigger("Dead");
-            StateObject.SetCharecterState(Charecter.ECharecterState.DEAD);
+            StateObject.SetCharecterState(ECharecterState.DEAD);
             StateObject.StartCoroutine(ResetDeathTimer(StateObject.GetDeathTime()));
 
         }

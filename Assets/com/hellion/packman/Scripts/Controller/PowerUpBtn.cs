@@ -1,9 +1,9 @@
 using System;
+using com.hellion.packman;
 using com.hellion.tilesystem;
 using com.hellion.tilesystem.utilities;
 using UnityEngine;
 using UnityEngine.UI;
-using static com.hellion.packaman.Charecter;
 
 namespace com.hellion.packaman
 {
@@ -25,7 +25,7 @@ namespace com.hellion.packaman
         {
             _button.onClick.AddListener(ShootFireBall);
             GameManager.OnPelletCollected += OnPelletCollected;
-            CurrentTile += CurrentTileUpdate;
+            Charecter.CurrentTile += CurrentTileUpdate;
             ResetPowerupButton();
             _moveObject.gameObject.SetActive(false);
         }
@@ -34,7 +34,7 @@ namespace com.hellion.packaman
         {
             _button.onClick.RemoveListener(ShootFireBall);
             GameManager.OnPelletCollected -= OnPelletCollected;
-            CurrentTile -= CurrentTileUpdate;
+            Charecter.CurrentTile -= CurrentTileUpdate;
         }
 
         private void OnPelletCollected()
@@ -118,23 +118,23 @@ namespace com.hellion.packaman
             }
         }
 
-        private void SetTarget(Charecter.ELookDirection direction, TileObject currentTile)
+        private void SetTarget(ELookDirection direction, TileObject currentTile)
         {
             switch (direction)
             {
-                case Charecter.ELookDirection.RIGHT:
+                case ELookDirection.RIGHT:
                     _targetTile = TileGenerator.GetRightTile(currentTile);
                     _moveDir = Vector3.right;
                     break;
-                case Charecter.ELookDirection.LEFT:
+                case ELookDirection.LEFT:
                     _targetTile = TileGenerator.GetLeftTile(currentTile);
                     _moveDir = Vector3.left;
                     break;
-                case Charecter.ELookDirection.UP:
+                case ELookDirection.UP:
                     _targetTile = TileGenerator.GetUpTile(currentTile);
                     _moveDir = Vector3.up;
                     break;
-                case Charecter.ELookDirection.DOWN:
+                case ELookDirection.DOWN:
                     _targetTile = TileGenerator.GetDownTile(currentTile);
                     _moveDir = Vector3.down;
                     break;

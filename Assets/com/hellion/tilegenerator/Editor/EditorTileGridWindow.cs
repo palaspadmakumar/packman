@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using com.hellion.tilesystem.utilities;
-using com.hellion.packaman;
+using com.hellion.packman;
 
 namespace com.hellion.tilesystem.editor
 {

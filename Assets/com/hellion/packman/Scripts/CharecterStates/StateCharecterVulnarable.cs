@@ -2,7 +2,7 @@ using System.Collections;
 using com.hellion.statemachine;
 using UnityEngine;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public class StateCharecterVulnarable : IState<Charecter>
     {
@@ -18,7 +18,7 @@ namespace com.hellion.packaman
         public void Enter(Charecter StateObject, params object[] args)
         {
             _vulanaibilityTime = StateObject.GetVulnTime();
-            StateObject.SetCharecterState(Charecter.ECharecterState.VULNARABLE);
+            StateObject.SetCharecterState(ECharecterState.VULNARABLE);
             StateObject.SetCharecterToVulnarable();
             StateObject.StartCoroutine(WaitTillVulnabilityTime(StateObject));
         }

@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using com.hellion.packaman;
+using com.hellion.packman;
 using UnityEngine;
 using UnityEngine.UI;
 

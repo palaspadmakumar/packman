@@ -1,6 +1,6 @@
 using com.hellion.statemachine;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public class StateCharecterAlive : IState<Charecter>
     {
@@ -13,7 +13,7 @@ namespace com.hellion.packaman
 
         public void Enter(Charecter StateObject, params object[] args)
         {
-            StateObject.SetCharecterState(Charecter.ECharecterState.ALIVE);
+            StateObject.SetCharecterState(ECharecterState.ALIVE);
             StateObject.SetCharecterToAliveState();
         }
 

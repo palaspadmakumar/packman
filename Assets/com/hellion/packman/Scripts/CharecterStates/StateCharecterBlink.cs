@@ -2,7 +2,7 @@ using System.Collections;
 using com.hellion.statemachine;
 using UnityEngine;
 
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
     public class StateCharecterBlink : IState<Charecter>
     {

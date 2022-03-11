@@ -1,4 +1,4 @@
-using com.hellion.packaman;
+using com.hellion.packman;
 using UnityEngine;
 using UnityEngine.UI;
 

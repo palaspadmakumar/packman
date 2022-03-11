@@ -1,4 +1,4 @@
-namespace com.hellion.packaman
+namespace com.hellion.packman
 {
 
     public enum ETileType
@@ -13,12 +13,5 @@ namespace com.hellion.packaman
         Wall_Top,
         Wall_Bottom
 
-    }
-
-    public enum EPelletType
-    {
-        None,
-        Pellet,
-        Energizer
     }
 }
