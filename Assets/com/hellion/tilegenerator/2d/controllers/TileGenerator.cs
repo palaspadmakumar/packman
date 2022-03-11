@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace com.hellion.tilesystem
 {
+    [DefaultExecutionOrder(-1)]
     public class TileGenerator : MonoBehaviour
     {
         [SerializeField] private GameObject tilePrefab;
