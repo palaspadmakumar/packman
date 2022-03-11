@@ -338,13 +338,21 @@ namespace com.hellion.packman
         private void MoveToTarget()
         {
             transform.position += _moveDir * moveSpeed * 0.001f;
-            if (Vector3.Distance(transform.position, target.transform.position) < 0.01f
-            || Math.Abs(tileObject.GetIndex().x - target.GetIndex().x) > 1
-            || Math.Abs(tileObject.GetIndex().y - target.GetIndex().y) > 1)
+            if (Vector3.Distance(transform.position, target.transform.position) < 0.01f || CheckIsCharecterTeleporting())
             {
                 tileObject = target;
                 target = null;
             }
+        }
+
+        public bool CheckIsCharecterTeleporting()
+        {
+            if (Math.Abs(tileObject.GetIndex().x - target.GetIndex().x) > 1 || Math.Abs(tileObject.GetIndex().y - target.GetIndex().y) > 1)
+            {
+                transform.position = target.transform.position;
+                return true;
+            }
+            return false;
         }
 
         private ELookDirection _lookDirection;
