@@ -27,6 +27,7 @@ namespace com.hellion.packaman
         private TileObject target = null;
         private Vector3 _moveDir = Vector3.zero;
         public static Action<Charecter, TileObject> CurrentTile;
+        private Animator packamanAnimator;
         #endregion
 
         #region Enums
@@ -84,6 +85,7 @@ namespace com.hellion.packaman
             }
             else
             {
+                packamanAnimator = transform.GetChild(0).GetComponent<Animator>();
                 TouchInputManagerProxy.InputUpdated += OnInputUpdated;
                 CurrentTile += CurrentTileUpdate;
             }
@@ -222,6 +224,7 @@ namespace com.hellion.packaman
             {
                 if (target.GetPelletType() != EPelletType.None)
                 {
+                    packamanAnimator.SetTrigger("EatPellet");
                     if (target.GetPelletType() == EPelletType.Pellet)
                     {
                         GameManager.Instance.AddScore(1);
@@ -248,6 +251,10 @@ namespace com.hellion.packaman
                 {
                     _eye.sprite = look_right;
                 }
+                else
+                {
+                    _charecterbody.transform.eulerAngles = Vector3.forward * 0;
+                }
                 SetELookDirection(ELookDirection.RIGHT);
                 _moveDir = Vector3.right;
             }
@@ -256,6 +263,10 @@ namespace com.hellion.packaman
                 if (_charecterType != ECharecterType.PACMAN)
                 {
                     _eye.sprite = look_left;
+                }
+                else
+                {
+                    _charecterbody.transform.eulerAngles = Vector3.forward * 180;
                 }
                 SetELookDirection(ELookDirection.LEFT);
                 _moveDir = Vector3.left;
@@ -266,6 +277,10 @@ namespace com.hellion.packaman
                 {
                     _eye.sprite = look_up;
                 }
+                else
+                {
+                    _charecterbody.transform.eulerAngles = Vector3.forward * 90;
+                }
                 SetELookDirection(ELookDirection.UP);
                 _moveDir = Vector3.up;
             }
@@ -274,6 +289,10 @@ namespace com.hellion.packaman
                 if (_charecterType != ECharecterType.PACMAN)
                 {
                     _eye.sprite = look_down;
+                }
+                else
+                {
+                    _charecterbody.transform.eulerAngles = Vector3.forward * -90;
                 }
                 SetELookDirection(ELookDirection.DOWN);
                 _moveDir = Vector3.down;
