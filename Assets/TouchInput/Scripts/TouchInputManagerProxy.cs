@@ -1,53 +1,51 @@
 ﻿using System;
 using UnityEngine;
 
-public sealed class TouchInputManagerProxy : MonoBehaviour, IInputManager
+public sealed class TouchInputManagerProxy : MonoBehaviour
 {
-	[SerializeField] private TouchInputManager mTouchInputManager;
+    [SerializeField] private TouchInputManager mTouchInputManager;
 
-	private Vector2 mInputVector;
+    private Vector2Int mInputVector;
 
-	public event Action<Vector2> InputUpdated;
+    public static Action<Vector2Int> InputUpdated;
 
-	private Vector2 InputVector
-	{
-		get
-		{
-			return mInputVector;
-		}
+    private Vector2 InputVector
+    {
+        get
+        {
+            return mInputVector;
+        }
 
-		set
-		{
-			if (Vector2.Distance(mInputVector, value) < 0.5f)
-			{
-				return;
-			}
+        set
+        {
+            mInputVector = Vector2Int.RoundToInt(value);
+        }
+    }
 
-			mInputVector = value;
-			InputUpdated?.Invoke(mInputVector);
-			Debug.Log(mInputVector);
-		}
-	}
+    private void Update()
+    {
+        InputUpdated?.Invoke(mInputVector);
+    }
 
-	private void Start()
-	{
-		if (mTouchInputManager == null)
-		{
-			return;
-		}
+    private void Start()
+    {
+        if (mTouchInputManager == null)
+        {
+            return;
+        }
 
-		mTouchInputManager.InputUpdated += OnInputUpdated;
-	}
+        mTouchInputManager.InputUpdated += OnInputUpdated;
+    }
 
-	private void OnDestroy()
-	{
-		mTouchInputManager.InputUpdated -= OnInputUpdated;
-	}
+    private void OnDestroy()
+    {
+        mTouchInputManager.InputUpdated -= OnInputUpdated;
+    }
 
-	private void OnInputUpdated(Vector2 inputVector)
-	{
-		Vector2 vector = inputVector.normalized / Mathf.Sin(45f * Mathf.PI / 180f);
-		vector = new Vector2((int)vector.x, (int)vector.y);
-		InputVector = vector;
-	}
+    private void OnInputUpdated(Vector2 inputVector)
+    {
+        Vector2 vector = inputVector.normalized / Mathf.Sin(45f * Mathf.PI / 180f);
+        vector = new Vector2((int)vector.x, (int)vector.y);
+        InputVector = vector;
+    }
 }

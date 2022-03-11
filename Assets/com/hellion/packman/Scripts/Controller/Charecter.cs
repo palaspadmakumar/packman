@@ -84,7 +84,50 @@ namespace com.hellion.packaman
             }
             else
             {
+                TouchInputManagerProxy.InputUpdated += OnInputUpdated;
                 CurrentTile += CurrentTileUpdate;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            TouchInputManagerProxy.InputUpdated -= OnInputUpdated;
+            if (_charecterType == ECharecterType.PACMAN)
+            {
+                CurrentTile -= CurrentTileUpdate;
+                TouchInputManagerProxy.InputUpdated -= OnInputUpdated;
+            }
+        }
+
+        private void OnInputUpdated(Vector2Int obj)
+        {
+            if (GameManager.Instance.isGamePaused)
+            {
+                return;
+            }
+            if (target == null)
+            {
+                if (obj == Vector2Int.left)
+                {
+                    target = TileGenerator.GetLeftTile(tileObject);
+                    ReCalculateMoveDirection();
+                }
+                else if (obj == Vector2Int.right)
+                {
+                    target = TileGenerator.GetRightTile(tileObject);
+                    ReCalculateMoveDirection();
+                }
+                else if (obj == Vector2Int.up)
+                {
+                    target = TileGenerator.GetUpTile(tileObject);
+                    ReCalculateMoveDirection();
+                }
+                else if (obj == Vector2Int.down)
+                {
+                    target = TileGenerator.GetDownTile(tileObject);
+                    ReCalculateMoveDirection();
+                }
+                CheckIsNewTargetContainPellet();
             }
         }
 
@@ -164,26 +207,31 @@ namespace com.hellion.packaman
                     target = TileGenerator.GetDownTile(tileObject);
                     ReCalculateMoveDirection();
                 }
-                if (target != null)
-                {
-                    if (target.GetPelletType() != EPelletType.None)
-                    {
-                        if (target.GetPelletType() == EPelletType.Pellet)
-                        {
-                            GameManager.Instance.AddScore(1);
-                        }
-                        else if (target.GetPelletType() == EPelletType.Energizer)
-                        {
-                            GameManager.Instance.SetEnemiesVulnarable();
-                        }
-                        target.SetPellet(EPelletType.None);
-                    }
-                }
+                CheckIsNewTargetContainPellet();
             }
             else if (target == null)
             {
                 target = charecter.GetNextTile(tileObject, this);
                 ReCalculateMoveDirection();
+            }
+        }
+
+        private void CheckIsNewTargetContainPellet()
+        {
+            if (target != null)
+            {
+                if (target.GetPelletType() != EPelletType.None)
+                {
+                    if (target.GetPelletType() == EPelletType.Pellet)
+                    {
+                        GameManager.Instance.AddScore(1);
+                    }
+                    else if (target.GetPelletType() == EPelletType.Energizer)
+                    {
+                        GameManager.Instance.SetEnemiesVulnarable();
+                    }
+                    target.SetPellet(EPelletType.None);
+                }
             }
         }
 
