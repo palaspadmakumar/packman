@@ -17,7 +17,23 @@ namespace com.hellion.tilesystem.editor
         { ETileType.Wall_Top_Right, "Assets/com/hellion/packman/Sprites/Wall_01.png" }, { ETileType.Wall_Top_Left, "Assets/com/hellion/packman/Sprites/Wall_02.png" },
         { ETileType.Wall_Bottom_Right, "Assets/com/hellion/packman/Sprites/Wall_03.png" }, { ETileType.Wall_Bottom_Left, "Assets/com/hellion/packman/Sprites/Wall_04.png" },
         { ETileType.Wall_Right, "Assets/com/hellion/packman/Sprites/Wall_05.png" }, { ETileType.Wall_Left, "Assets/com/hellion/packman/Sprites/Wall_06.png" },
-        { ETileType.Wall_Top, "Assets/com/hellion/packman/Sprites/Wall_07.png" }, { ETileType.Wall_Bottom, "Assets/com/hellion/packman/Sprites/Wall_08.png" } };
+        { ETileType.Wall_Top, "Assets/com/hellion/packman/Sprites/Wall_07.png" }, { ETileType.Wall_Bottom, "Assets/com/hellion/packman/Sprites/Wall_08.png" },
+        { ETileType.Wall_Bottom_Right_Line_Right, "Assets/com/hellion/packman/Sprites/Wall_09.png" }, { ETileType.Wall_Top_Right_Line_Right, "Assets/com/hellion/packman/Sprites/Wall_10.png" },
+        { ETileType.Wall_Bottom_Left_Line_Left, "Assets/com/hellion/packman/Sprites/Wall_11.png" }, { ETileType.Wall_Top_Left_Line_Left, "Assets/com/hellion/packman/Sprites/Wall_12.png" },
+        { ETileType.Wall_Top_Left_Line_Top, "Assets/com/hellion/packman/Sprites/Wall_13.png" }, { ETileType.Wall_Top_Right_Line_Top, "Assets/com/hellion/packman/Sprites/Wall_14.png" },
+        { ETileType.Wall_Bottom_Left_Line_Bottom, "Assets/com/hellion/packman/Sprites/Wall_15.png" }, { ETileType.Wall_Bottom_Right_Line_Bottom, "Assets/com/hellion/packman/Sprites/Wall_16.png" },
+        { ETileType.Wall_Bottom_Right_Line_Single, "Assets/com/hellion/packman/Sprites/Wall_17.png" }, { ETileType.Wall_Bottm_Left_Line_Single, "Assets/com/hellion/packman/Sprites/Wall_18.png" },
+        { ETileType.Wall_Top_Right_Single_Line, "Assets/com/hellion/packman/Sprites/Wall_19.png" }, { ETileType.Wall_Top_Left_Line_Single, "Assets/com/hellion/packman/Sprites/Wall_20.png" },
+        { ETileType.Wall_Bottom_Line_single, "Assets/com/hellion/packman/Sprites/Wall_21.png" },
+        { ETileType.Wall_Top_Line_Single, "Assets/com/hellion/packman/Sprites/Wall_22.png" }, { ETileType.Wall_Left_Line_Single, "Assets/com/hellion/packman/Sprites/Wall_23.png" },
+        { ETileType.Wall_Right_Line_Single, "Assets/com/hellion/packman/Sprites/Wall_24.png" }, { ETileType.Wall_Top_Right_Small, "Assets/com/hellion/packman/Sprites/Wall_25.png" },
+        { ETileType.Wall_Top_Left_Small, "Assets/com/hellion/packman/Sprites/Wall_26.png" }, { ETileType.Wall_Bottom_Right_Small, "Assets/com/hellion/packman/Sprites/Wall_27.png" },
+        { ETileType.Wall_Bottom_Left_Small, "Assets/com/hellion/packman/Sprites/Wall_28.png" }, { ETileType.Wall_Bootom_Right_Small_Middle, "Assets/com/hellion/packman/Sprites/Wall_29.png" },
+        { ETileType.Wall_Top_Right_Small_Middle, "Assets/com/hellion/packman/Sprites/Wall_30.png" }, { ETileType.Wall_Bottom_Left_Small_Middle, "Assets/com/hellion/packman/Sprites/Wall_31.png" },
+        { ETileType.Wall_Top_Left_Small_Middle, "Assets/com/hellion/packman/Sprites/Wall_32.png" }, { ETileType.Wall_Top_Right_Sharp, "Assets/com/hellion/packman/Sprites/Wall_33.png" },
+        { ETileType.Wall_Top_Left_Sharp, "Assets/com/hellion/packman/Sprites/Wall_34.png" },{ ETileType.Wall_Bottom_Right_Sharp, "Assets/com/hellion/packman/Sprites/Wall_35.png" },
+        { ETileType.Wall_Bottom_Left_Sharp, "Assets/com/hellion/packman/Sprites/Wall_36.png" },
+        { ETileType.Wall_Bottom_Single_White, "Assets/com/hellion/packman/Sprites/Wall_37.png" }};
 
         [MenuItem("packman/TileGridWindow")]
         private static void ShowWindow()

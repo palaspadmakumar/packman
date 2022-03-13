@@ -759,8 +759,8 @@ MonoBehaviour:
   look_up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
   look_down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
   _eye: {fileID: 1085914301}
-  _x: 15
-  _y: 25
+  _x: 13
+  _y: 15
   _charecterState: 0
   _charecterType: 3
   tileObject: {fileID: 0}
@@ -1088,8 +1088,8 @@ MonoBehaviour:
   look_up: {fileID: 0}
   look_down: {fileID: 0}
   _eye: {fileID: 0}
-  _x: 14
-  _y: 5
+  _x: 15
+  _y: 1
   _charecterState: 0
   _charecterType: 0
   tileObject: {fileID: 0}
@@ -1403,8 +1403,8 @@ MonoBehaviour:
   look_up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
   look_down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
   _eye: {fileID: 1434874696}
-  _x: 10
-  _y: 25
+  _x: 11
+  _y: 15
   _charecterState: 0
   _charecterType: 2
   tileObject: {fileID: 0}
@@ -2524,8 +2524,8 @@ MonoBehaviour:
   look_up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
   look_down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
   _eye: {fileID: 383601777}
-  _x: 5
-  _y: 25
+  _x: 14
+  _y: 19
   _charecterState: 0
   _charecterType: 1
   tileObject: {fileID: 0}
@@ -2672,8 +2672,8 @@ MonoBehaviour:
   look_up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
   look_down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
   _eye: {fileID: 1122438090}
-  _x: 20
-  _y: 25
+  _x: 15
+  _y: 15
   _charecterState: 0
   _charecterType: 4
   tileObject: {fileID: 0}

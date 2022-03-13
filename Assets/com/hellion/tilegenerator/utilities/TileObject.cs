@@ -11,7 +11,7 @@ namespace com.hellion.tilesystem.utilities
         [SerializeField] private Image _sprite;
         [SerializeField] private Image _pellet;
         [SerializeField] private RawImage select;
-        private Vector2Int index = new Vector2Int(0, 0);
+        [SerializeField] private Vector2Int index = new Vector2Int(0, 0);
 
         public void SetSprite(Sprite sprite)
         {
@@ -70,10 +70,15 @@ namespace com.hellion.tilesystem.utilities
                         GameManager.Instance.totalPelletCount += 1;
                     }
                 }
+                _pellet.sprite = sprite;
                 SetActivePellet(true);
             }
+            else
+            {
+                _pellet.sprite = sprite;
+                SetActivePellet(false);
+            }
             _pellet_type = pellet_type;
-            _pellet.sprite = sprite;
         }
 
         private void SetActivePellet(bool active)
